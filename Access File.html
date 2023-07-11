@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Password Login</title>
+    <style>
+        body {
+            background-color: black;
+            color: #FFFFFF;
+            font-family: Courier, monospace;
+        }
+        #login-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        #password-input {
+            margin-bottom: 20px;
+        }
+        #message {
+            display: none;
+            font-size: 16px;
+			font-weight: bold;
+        }
+        .access-granted {
+            color: #39FF14;
+        }
+        .access-denied {
+            color: #FF3131;
+        }
+    </style>
+</head>
+<body>
+<center>
+    <form id="login-form">
+        <div id="password-input">
+		 <p style= "font-size: 25px"><b>Enter Password</b></p>
+            <input type="password" id="password" maxlength="10" autofocus>
+        </div>
+        <p id="message" class="access-granted">Access Granted</p>
+        <p id="message" class="access-denied">Access Denied</p>
+    </form>
+	</center>
+    <script>
+        document.getElementById("login-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var password = document.getElementById("password").value;
+            var accessGrantedMessage = document.querySelector(".access-granted");
+            var accessDeniedMessage = document.querySelector(".access-denied");
+            if (password === "1111") {
+                accessDeniedMessage.style.display = "none";
+                accessGrantedMessage.style.display = "block";
+                setTimeout(function() {
+                    window.location.href = "file:///C:/Users/cys/Documents/JS%20Top%20Secret/Project%20Doppelganger.html";
+                }, 1500); // this redirects the thing after 1.5 secs I think??
+            } else {
+                accessGrantedMessage.style.display = "none";
+                accessDeniedMessage.style.display = "block";
+            }
+        });
+    </script>
+</body>
+</html>
